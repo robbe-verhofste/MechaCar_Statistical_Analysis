@@ -1,0 +1,17 @@
+library(dplyr)
+
+MechaCar <- read.csv(file="./Resources/MechaCar_mpg.csv")
+
+View(MechaCar)
+lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data = MechaCar)
+
+summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data = MechaCar))
+
+ggplot(MechaCar, aes(RM, MEDV)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+
+reg <- lm(RM ~ MEDV, data=MechaCar)
+summary(reg)
+
+summary(reg)$r.squared
